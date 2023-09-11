@@ -1,0 +1,12 @@
+﻿student #,height_cm,circumference_head_cm,num_siblings,handedness,dominant_foot
+1,188,57,2,right,right
+2,168,53,1,right,right
+3,164,54,1,right ,right
+4,180,57,2,right ,right
+5,177,54,5,right,right
+6,159,55,1,right ,right
+7,163.83,48,1,right,ambipedal
+8,158,54,1,right ,right
+9,168,57,3,right,right
+10,178,58,3,right,right
+11,173,57,1,left,left

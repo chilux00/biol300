@@ -1,0 +1,6 @@
+student # : arbitrary value
+height_cm : height in centimeters
+circumference_head_cm : circumference of the head in centimeters
+num_siblings : number of siblings
+handedness : handedness
+dominant_foot : dominant foot
