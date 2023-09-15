@@ -10,7 +10,7 @@
 # [3c] tvs_pp
 # [3d] tot_height_giraffes
 
-#Question 4
+# Question 4
 # [4a]
 15*17
 # [4b]
@@ -21,3 +21,9 @@ log(14)
 log(base=10, 100)
 # [4e]
 sqrt(81)
+
+# Question 5: Excel task
+studentData <- read.csv("lab1_data.csv")
+summary(studentData)
+# [Q7] mean height: 170.6cm
+table(studentData$handedness)
