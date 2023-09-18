@@ -30,7 +30,34 @@ avg_urine_pool <- mean(urine_L_pool)
 # 1e) Yes, it returned the same answer as with mean().
 sum(urine_L_pool) / length(urine_L_pool)
 
-# 1f) The average amount of urine (mL) in a 500 000L pool is 52 500mL.
+# 1f) The average amount of urine (mL) in a 500 000L pool is 52 500 mL.
 avg_urine_pool * 500000
 
+## Question 2
+# 2a)
+o2_consume_feed <- c(71.0, 77.3, 82.6, 96.1, 106.6, 112.8, 121.2, 126.4, 
+                     127.5, 143.1)
+o2_consume_nonfeed <- c(42.2, 51.7, 59.8, 66.5, 81.9, 82.0, 81.3, 81.3, 96.0, 
+                        104.1)
 
+# 2b)
+length(o2_consume_feed)
+length(o2_consume_nonfeed)
+
+# 2c)
+MetabolismDifference <- o2_consume_feed - o2_consume_nonfeed
+MetabolismDifference
+
+# 2d) The average difference in O2 consumption was 31.78 ml O2/kg
+mean(MetabolismDifference)
+
+# 2e)
+MetabolismRatio <- o2_consume_feed / o2_consume_nonfeed
+MetabolismRatio
+
+# 2f) The mean of this log ratio is 0.363873
+logMetabolismRatio <- log(MetabolismRatio)
+mean(logMetabolismRatio)
+
+## Question 3
+# 3a)
