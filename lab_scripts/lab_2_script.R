@@ -77,3 +77,8 @@ summary(countries)
 countries$eco_diff_2012_2000 = countries$ecological_footprint_2012 - 
   countries$ecological_footprint_2000
 mean(countries$eco_diff_2012_2000, na.rm = TRUE)  
+
+## Question 4
+# The sum of total population (1000s) in 2015 is 1184501
+AfricaData <- filter(countries, continent == "Africa")
+sum(AfricaData$total_population_in_thousands_2015)
