@@ -26,6 +26,7 @@ urine_L_pool
 # 1d) The mean concentration of urine/L is 0.105 mL urine/L. 
 # This is ng/ACE/L divided by 4000.
 avg_urine_pool <- mean(urine_L_pool)
+avg_urine_pool
 
 # 1e) Yes, it returned the same answer as with mean().
 sum(urine_L_pool) / length(urine_L_pool)
