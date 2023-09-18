@@ -61,3 +61,19 @@ mean(logMetabolismRatio)
 
 ## Question 3
 # 3a)
+countries <- read.csv("DataForLabs/countries.csv", stringsAsFactors = TRUE)
+
+# 3b)
+summary(countries)
+
+# 3c) There are 54 countries from Africa in this dataset.
+
+# 3d) continents - categorical
+# cell_phone_subscriptions_per_100_people_2012 - numerical
+# total_populations_in_thousands_2015 - numerical
+# fines_for_tobacco_advertising_2014 - categorical
+
+# 3e) The mean of this difference is -0.4169565
+countries$eco_diff_2012_2000 = countries$ecological_footprint_2012 - 
+  countries$ecological_footprint_2000
+mean(countries$eco_diff_2012_2000, na.rm = TRUE)  
