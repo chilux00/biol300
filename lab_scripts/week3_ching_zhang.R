@@ -15,7 +15,8 @@ countries <- read.csv("DataForLabs/countries.csv")
 library(ggplot2) # This is necessary as we are calling non-native functions
 
 # 2c) There is a positive relationship with % vaccination and frequency,
-# the frequency increases as % vaccination also increases.
+# the frequency increases as % vaccination also increases. The graph is skewed
+# to the left.
 ggplot(countries,
        aes(x = measles_immunization_oneyearolds)) +
   geom_histogram() +
@@ -43,17 +44,19 @@ ggplot(countries,
        aes(x = ecological_footprint_2000,
            y = ecological_footprint_2012)) +
   geom_point() +
-  xlab("Ecological footprint in 2000 (hectares)") +
-  ylab("Ecological footprint in 2012 (hectares)") +
+  xlab("Ecological footprint by Country in 2000 (hectares)") +
+  ylab("Ecological footprint by Country in 2012 (hectares)") +
   geom_abline(intercept = 0, slope = 1) 
 
 # 3b) There is a moderately strong positive and increasing relationship between 
 # the two years in terms of ecological footprint. As ecological footprint in  
-# either year increases, the ecological footprint of the other year also 
-# increases.
+# 2000 increases, the ecological footprint of the other year increases. However, 
+# the scale of the 2012 axis is smaller - all countries overall decreased their
+# carbon footprints from 2000 to 2012.
 
-# 3c) The ecological footprint tends to go up. Countries with high ecological 
-# footprint in 2000 changed and increased the most in 2012.
+# 3c) The ecological footprint tends to go down Countries with high ecological 
+# footprint in 2000 changed and increased the most in 2012,, but overall all
+# countries decreased from 2000 to 2012.
 
 ## Question 4
 # Life expectancy varies greatly with continent. Africa has the greatest range
@@ -101,7 +104,7 @@ ggplot(lab1,
 
 # 6b)
 ggplot(lab1,
-       aes(x = circumference_head_cm)) +
+       aes(x = HeadCircumference)) +
   geom_histogram() +
   xlab("Head circumference (cm)") 
 
