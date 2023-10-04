@@ -63,7 +63,69 @@ t.test(caffeine$caffeine_mg_16oz, conf.level = 0.99)$conf.int
 # 3b) The 99% CI spans a wider range, as it is more likely to contain the true 
 # value, given that there is a wider range of potential values.
 
-# 3c) 
+# 3c) The 2.5% to 97.5% quantiles of the distribution are 144.765 mg to 254.685 
+# mg. This should still give us 95% of the data values as the difference 
+# between the quantiles is still 95%, meaning that our range of interest
+# for our data values has just shifted but remains the same width. These are not
+# the same boundaries as the 95% confidence interval however, since we are
+# looking at values from 2.5% to 97.5%. The confidence interval of the mean
+# should bound a larger region.
 quantile(caffeine$caffeine_mg_16oz, c(0.025, 0.975), na.rm =TRUE)
+
+## Question 4
+mean(data$SiblingNumber) + 1
+
+# 4a) The value for this class is similar, but greater. An increase in number
+# of siblings just means that families on average are having more children.
+# This could be due to positive growth in the economy that allows families
+# to support more children at a time, or an overall increase in birth rate.
+
+# 4b) The families represented in this class may be different, or show a 
+# sampling bias dependent on factors such as the wealth of the school, the type
+# of school, the location, etc.
+
+# 4c) 
+
+## Question 5
+# 5a) For ecological footprint, the variable is skewed to the right.
+# For cellphone subscriptions, the variable is relatively normally distributed,
+# slightly skewed to the left.
+# For female life expectancy, the variable is skewed to the left.
+countries <- read.csv("DataForLabs/countries.csv")
+
+footprint_plot <- countries %>%
+  ggplot(aes(x = ecological_footprint_2000)) +
+  geom_histogram() +
+  xlab("Ecological footprint in 2000 (hectares)") +
+  ylab("Frequency")
+
+cellphone_plot <- countries %>%
+  ggplot(aes(x = cell_phone_subscriptions_per_100_people_2012)) +
+  geom_histogram() +
+  xlab("Cellphone subscriptions per 100 people in 2012") +
+  ylab("Frequency")
+
+expectancy_plot <- countries %>%
+  ggplot(aes(x = life_expectancy_at_birth_female)) +
+  geom_histogram() +
+  xlab("Female life expectancy at birth (years)") +
+  ylab("Frequency")
+
+footprint_plot
+cellphone_plot
+expectancy_plot
+
+# 5b) For ecological footprint, mean = 3.147391 hectares, median = 2.14 hectares
+# For cellphone subscriptions, mean = 99.90419, median = 103.25
+# For female life expectancy, mean = 73.4153 years, median = 75.9 years
+#
+mean(countries$ecological_footprint_2000, na.rm = TRUE)
+median(countries$ecological_footprint_2000, na.rm = TRUE)
+
+mean(countries$cell_phone_subscriptions_per_100_people_2012, na.rm = TRUE)
+median(countries$cell_phone_subscriptions_per_100_people_2012, na.rm = TRUE)
+
+mean(countries$life_expectancy_at_birth_female, na.rm = TRUE)
+median(countries$life_expectancy_at_birth_female, na.rm = TRUE)
 
 
