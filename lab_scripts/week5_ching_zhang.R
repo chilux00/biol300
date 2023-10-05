@@ -42,12 +42,12 @@ caffeine_plot <- caffeine %>%
   ylab("Frequency")
 caffeine_plot
 
-stdv_caffeine <- sd(caffeine$caffeine_mg_16oz, na.rm = TRUE)
-stdv_caffeine
+sd(caffeine$caffeine_mg_16oz, na.rm = TRUE)
 
-mean_caffeine <- mean(caffeine$caffeine_mg_16oz, na.rm = TRUE)
+sd(caffeine$caffeine_mg_16oz, na.rm = TRUE) / 
+  mean(caffeine$caffeine_mg_16oz, na.rm = TRUE)
 
-stdv_caffeine / mean_caffeine
+
 
 # 2d) Mean = 371.9667 mg, 95% CI: 239.3527 mg to 504.5806 mg. The overall 
 # average caffeine content is much higher in Starbucks caffeine, and the 
