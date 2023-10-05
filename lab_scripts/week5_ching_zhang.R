@@ -68,8 +68,9 @@ t.test(caffeine$caffeine_mg_16oz, conf.level = 0.99)$conf.int
 # between the quantiles is still 95%, meaning that our range of interest
 # for our data values has just shifted but remains the same width. These are not
 # the same boundaries as the 95% confidence interval however, since we are
-# looking at values from 2.5% to 97.5%. The confidence interval of the mean
-# should bound a larger region.
+# looking at values from 2.5% to 97.5%. Probability decreases towards the tail
+# ends of data, therefore the 95% confidence interval should be less wide in 
+# range.
 quantile(caffeine$caffeine_mg_16oz, c(0.025, 0.975), na.rm =TRUE)
 
 ## Question 4
@@ -84,7 +85,11 @@ mean(data$SiblingNumber) + 1
 # sampling bias dependent on factors such as the wealth of the school, the type
 # of school, the location, etc.
 
-# 4c) 
+# 4c) No families with zero children are represented as the survey was taken 
+# from a school population - each family has minimum one child as that was the
+# child taking the survey. This skews the data towards a higher sample mean 
+# compared to the true mean of the population. This would give the data a 
+# left tailed type of histogram. 
 
 ## Question 5
 # 5a) For ecological footprint, the variable is skewed to the right.
