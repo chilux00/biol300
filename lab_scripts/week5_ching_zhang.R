@@ -49,12 +49,12 @@ mean_caffeine <- mean(caffeine$caffeine_mg_16oz, na.rm = TRUE)
 
 stdv_caffeine / mean_caffeine
 
-# 2d) Mean = 371.9667 mg, SD = 126.3669 mg. The overall average caffeine 
-# content is much higher in Starbucks caffeine, and the standard deviation is
-# also much larger.
+# 2d) Mean = 371.9667 mg, 95% CI: 239.3527 mg to 504.5806 mg. The overall 
+# average caffeine content is much higher in Starbucks caffeine, and the 
+# standard deviation is also much larger.
 caffeine_starbucks <- read.csv("DataForLabs/caffeineStarbucks.csv")
 mean(caffeine_starbucks$caffeine_mg_16oz, na.rm = TRUE)
-sd(caffeine_starbucks$caffeine_mg_16oz, na.rm = TRUE)
+t.test(caffeine_starbucks$caffeine_mg_16oz, na.rm = TRUE)$conf.int
 
 ## Question 3
 # 3a) 99% CI: 159.4238 mg to 216.7047 mg.
