@@ -43,9 +43,10 @@ caffeine_plot <- caffeine %>%
 caffeine_plot
 
 sd(caffeine$caffeine_mg_16oz, na.rm = TRUE)
+mean(caffeine$caffeine_mg_16oz, na.rm = TRUE)
 
 sd(caffeine$caffeine_mg_16oz, na.rm = TRUE) / 
-  mean(caffeine$caffeine_mg_16oz, na.rm = TRUE)
+  mean(caffeine$caffeine_mg_16oz, na.rm = TRUE) * 100
 
 
 
