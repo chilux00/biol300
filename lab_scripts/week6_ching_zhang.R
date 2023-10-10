@@ -36,9 +36,17 @@ soccer_plot <- soccer_birth %>%
 soccer_plot
 
 # 3b) 
-canadian_births <- read.csv("DataForLabs/Canadian_births.csv")
+canadian_births <- read.csv("DataForLabs/Canadian_births.csv",
+                            stringsAsFactors = TRUE)
+#### how to create fq table with these expected proportions?
 
 
 ## Question 4
 # 4a)
-cardiac_events <- read.csv("DataForLabs/cardiac events.csv")
+cardiac_events <- read.csv("DataForLabs/cardiac events.csv",
+                           stringsAsFactors = TRUE)
+cardiac_events <- cardiac_events %>%
+  mutate(frequency = frequency_out_of_hospital_cardiac_arrests +
+           frequency_in_hospital_cardiac_events) %>%
+  select(number_events_per_week, frequency)
+
