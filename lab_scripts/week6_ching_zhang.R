@@ -45,7 +45,10 @@ soccer_plot
 # 3b) 
 canadian_births <- read.csv("DataForLabs/Canadian_births.csv",
                             stringsAsFactors = TRUE)
-#### how to create fq table with these expected proportions?
+canadian_births
+canadian_birth_proportion <- canadian_births$canada_births_proportion
+
+chisq.test(soccer_table, p = canadian_birth_proportion)
 
 
 ## Question 4
@@ -57,4 +60,6 @@ cardiac_events <- cardiac_events %>%
            frequency_in_hospital_cardiac_events) %>%
   select(number_events_per_week, frequency)
 cardiac_events
-Scardiac_table
+
+# 4b)
+mean(cardiac_events$frequency)
