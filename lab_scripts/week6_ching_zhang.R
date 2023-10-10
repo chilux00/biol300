@@ -2,7 +2,12 @@
 library(binom)
 
 ## Question 1
-# 1a)
+# 1a) The 95% CI for this data is 0.004762806 to 0.02606666.
+binom.confint(x = 6, n = 510, method = "ac")
+
+# 1b)
+binom.test(x = 0, n = 300, p = 0)
+# what p-value to use?
 
 ## Question 2
 # 2a) The expected frequencies are 13 choices for each.
