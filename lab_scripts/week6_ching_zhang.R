@@ -53,13 +53,31 @@ chisq.test(soccer_table, p = canadian_birth_proportion)
 
 ## Question 4
 # 4a)
-cardiac_events <- read.csv("DataForLabs/cardiac events.csv",
-                           stringsAsFactors = FALSE)
-cardiac_events <- cardiac_events %>%
-  mutate(frequency = frequency_out_of_hospital_cardiac_arrests +
-           frequency_in_hospital_cardiac_events) %>%
-  select(number_events_per_week, frequency)
-cardiac_events
+cardiac_arrests <- read.csv("DataForLabs/cardiac arrests out of hospital.csv")
+cardiac_table <- table(cardiac_arrests$out_of_hospital_cardiac_arrests)
+cardiac_table
 
-# 4b)
-mean(cardiac_events$frequency)
+# 4b) Mean = 2.015326 cardiac arrests.
+mean(cardiac_arrests$out_of_hospital_cardiac_arrests)
+
+# 4c)
+dpois(x = 0, lambda = 2.015326) * sum(cardiac_table)
+
+# 4d) One expected frequency is less than 5, but this is still less than 
+# 25% of the total, and no expected frequencies are less than 1. This means
+# that the frequencies are acceptable for use in a chi squared goodness of 
+# fit test.
+
+# 4e)
+cardiac_expected <- c(34.785295, 70.103698, 70.640891, 47.454800, 23.909219,
+                      9.636973, 4.469124) / 261
+cardiac_observed <- c(cardiac_table)
+
+# 4f) Chi squared: 5.799068 
+chisq.test(cardiac_observed, p = cardiac_expected)$statistic
+
+# 4g) There are 6 degrees of freedom.
+
+# 4h) 0.446071
+pchisq(q = 5.799068, df = 6, lower.tail = FALSE)
+
