@@ -20,8 +20,8 @@ sum(stockings_table)  # 52
 stockings_expected <- c(0.25, 0.25, 0.25, 0.25)
 52 * stockings_expected 
 
-# 2b) The p-value is 0.014, and we can reject the null hypothesis. Stocking
-# selection is not independent of position.
+# 2b) The p-value is 0.014, which is smaller than 0.05, and we can reject the 
+# null hypothesis. Stocking selection is not independent of position.
 chisq.test(stockings_table, p = stockings_expected)
 
 # 2c)
@@ -95,5 +95,6 @@ pchisq(q = 5.799068, df = 5, lower.tail = FALSE)
 
 # 4i) Given the data, the P-value for this test fitted to a Poisson distribution
 # is approximately 0.3262641. With this value, we cannot reject the null
-# hypothesis that these data follow a Poisson distribution.
+# hypothesis that these data follow a Poisson distribution. There is no 
+# association.
 
