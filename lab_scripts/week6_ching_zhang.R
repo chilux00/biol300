@@ -21,7 +21,7 @@ stockings_expected <- c(0.25, 0.25, 0.25, 0.25)
 52 * stockings_expected 
 
 # 2b) The p-value is 0.014, and we can reject the null hypothesis. Stocking
-# selection is independent of position.
+# selection is not independent of position.
 chisq.test(stockings_table, p = stockings_expected)
 
 # 2c)
@@ -42,13 +42,23 @@ soccer_plot <- soccer_birth %>%
   ylab("Frequency")
 soccer_plot
 
-# 3b) 
+# 3b) The chi-squared value is 114.82, the degrees of freedom is 3, and the 
+# p-value is 2.2e-16. With these data, we can reject the null hypothesis and
+# conclude that the birth month does indeed have an effect on athlete 
+# performance.
 canadian_births <- read.csv("DataForLabs/Canadian_births.csv",
                             stringsAsFactors = TRUE)
 canadian_births
-canadian_birth_proportion <- c(canadian_births$canada_births_proportion)
+# create vectors for each month group
+Aug_Oct <- 0.0865 + 0.0863 + 0.0833
+Feb_Apr <- 0.0757 + 0.0860 + 0.0847
+May_July <- 0.0880 + 0.0854 + 0.0881
+Nov_Jan <- 0.0780 + 0.0776 + 0.0804
 
-chisq.test(soccer_table, p = canadian_birth_proportion)
+canadian_expected <- c(Aug_Oct, Feb_Apr, May_July, Nov_Jan)
+sum(canadian_expected) # check that probabilities sum to 1 - yes
+
+chisq.test(soccer_table, p = canadian_expected)
 
 
 ## Question 4
@@ -71,13 +81,19 @@ dpois(x = 0, lambda = 2.015326) * sum(cardiac_table)
 # 4e)
 cardiac_expected <- c(34.785295, 70.103698, 70.640891, 47.454800, 23.909219,
                       9.636973, 4.469124) / 261
-cardiac_observed <- c(cardiac_table)
+sum(cardiac_expected) # check that sums to 1 - yes
+cardiac_observed <- c(36, 79, 60, 41, 28, 10, 7)
 
 # 4f) Chi squared: 5.799068 
 chisq.test(cardiac_observed, p = cardiac_expected)$statistic
 
-# 4g) There are 6 degrees of freedom.
+# 4g) Number of categories (7) - number parameters estimated (1) - 1 = 5
+# The degrees of freedom = 5
 
-# 4h) 0.446071
-pchisq(q = 5.799068, df = 6, lower.tail = FALSE)
+# 4h) The p-value for this test is 0.3262641.
+pchisq(q = 5.799068, df = 5, lower.tail = FALSE)
+
+# 4i) Given the data, the P-value for this test fitted to a Poisson distribution
+# is approximately 0.3262641. With this value, we cannot reject the null
+# hypothesis that these data follow a Poisson distribution.
 
