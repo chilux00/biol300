@@ -20,8 +20,8 @@ sum(stockings_table)  # 52
 stockings_expected <- c(0.25, 0.25, 0.25, 0.25)
 52 * stockings_expected 
 
-# 2b) The p-value is 0.014, and we can reject the null hypothesis. Stocking
-# selection is not independent of position.
+# 2b) The p-value is 0.014, which is smaller than 0.05, and we can reject the 
+# null hypothesis. Stocking selection is not independent of position.
 chisq.test(stockings_table, p = stockings_expected)
 
 # 2c)
