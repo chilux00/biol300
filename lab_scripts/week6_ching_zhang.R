@@ -5,9 +5,9 @@ library(binom)
 # 1a) The 95% CI for this data is 0.004762806 to 0.02606666.
 binom.confint(x = 6, n = 510, method = "ac")
 
-# 1b)
-binom.test(x = 0, n = 300, p = 0)
-# what p-value to use? 
+# 1b) The 95% CI for this data is -0.002590143 to 0.01523311. (Note, negative
+# doesn't make sense, but just input it anyways). The expected proportion is 0.
+binom.confint(x = 0, n = 300, method = "ac") 
 
 ## Question 2
 # 2a) The expected frequencies are 13 choices for each.
@@ -46,7 +46,7 @@ soccer_plot
 canadian_births <- read.csv("DataForLabs/Canadian_births.csv",
                             stringsAsFactors = TRUE)
 canadian_births
-canadian_birth_proportion <- canadian_births$canada_births_proportion
+canadian_birth_proportion <- c(canadian_births$canada_births_proportion)
 
 chisq.test(soccer_table, p = canadian_birth_proportion)
 
