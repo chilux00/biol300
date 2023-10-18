@@ -37,7 +37,9 @@ mosaicplot(oswego_vanilla,
            color = c("darkred", "gold"), 
            xlab ="Food eaten?", ylab = "Healthy or Sick")
 
-
-
-
+## Question 2
+# 2a)
+week1 <- read.csv("DataForLabs/collecteddata_lab1.csv")
+dominant_table <- table(week1$Hand, week1$Foot)
+fisher.test(dominant_table)
 
