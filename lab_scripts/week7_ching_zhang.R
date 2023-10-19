@@ -38,8 +38,36 @@ mosaicplot(oswego_vanilla,
            xlab ="Food eaten?", ylab = "Healthy or Sick")
 
 ## Question 2
-# 2a)
+# 2a) The p-value is 1.132e-05, so we reject the null hypothesis that there is 
+# no association.
 week1 <- read.csv("DataForLabs/collecteddata_lab1.csv")
 dominant_table <- table(week1$Hand, week1$Foot)
 fisher.test(dominant_table)
 
+## Question 3
+# 3a) The odds ratio is 1.061703 for association between name and mode of
+# movement, and the 95% confidence interval is from 0.3269777 to 3.4491262.
+shufflebottom <- read.csv("DataForLabs/shufflebottoms.csv")
+shuffletable <-  table(shufflebottom$name, shufflebottom$movement_type)
+shuffletable
+
+fisher.test(shuffletable)
+
+# 3b) Based on the odds ratio and confidence interval, I would expect that a 
+# hypothesis test would not find a significant association between name and 
+# movement type. The point estimate odds ratio is very close to 1, suggesting
+# that the data is not providing strong evidence to reject the null hypothesis.
+
+# 3c) The output shows that the chi squared value is 0.012994 with 1 degree of
+# freedom and a p-value of 0.9092. We do not reject the null hypothesis of 
+# no association for a significant difference between the name groups for mode
+# of movement.
+chisq.test(shuffletable, correct = FALSE)
+
+## Question 4
+# 4a)
+falls <- read.csv("DataForLabs/stopping_falls.csv")
+falls <- tbl(falls$stopped_to_talk, falls$fall)
+
+## Question 5
+# 5a)
