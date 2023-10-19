@@ -63,3 +63,11 @@ fisher.test(shuffletable)
 # no association for a significant difference between the name groups for mode
 # of movement.
 chisq.test(shuffletable, correct = FALSE)
+
+## Question 4
+# 4a)
+falls <- read.csv("DataForLabs/stopping_falls.csv")
+falls <- tbl(falls$stopped_to_talk, falls$fall)
+
+## Question 5
+# 5a)
