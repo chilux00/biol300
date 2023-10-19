@@ -55,4 +55,11 @@ fisher.test(shuffletable)
 
 # 3b) Based on the odds ratio and confidence interval, I would expect that a 
 # hypothesis test would not find a significant association between name and 
-# movement type
+# movement type. The point estimate odds ratio is very close to 1, suggesting
+# that the data is not providing strong evidence to reject the null hypothesis.
+
+# 3c) The output shows that the chi squared value is 0.012994 with 1 degree of
+# freedom and a p-value of 0.9092. We do not reject the null hypothesis of 
+# no association for a significant difference between the name groups for mode
+# of movement.
+chisq.test(shuffletable, correct = FALSE)
