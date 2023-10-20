@@ -70,4 +70,8 @@ falls <- read.csv("DataForLabs/stopping_falls.csv")
 falls <- tbl(falls$stopped_to_talk, falls$fall)
 
 ## Question 5
-# 5a)
+# 5a) The odds ratio is 0.676663 and then 95% confidence interval is from
+# 0.1736193 to 2.9086672.
+tCountTable <- data.frame(Common = c (24, 5), Uncommon = c(57, 8), 
+                          row.names = c("Found", "Not found"))
+fisher.test(tCountTable)
