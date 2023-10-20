@@ -68,9 +68,11 @@ chisq.test(shuffletable, correct = FALSE)
 ## Question 4
 # 4a)
 falls <- read.csv("DataForLabs/stopping_falls.csv")
-falls <- tbl(falls$stopped_to_talk, falls$fall)
-class(falls$fall)
-class(falls$stopped_to_talk)
+fallstable <- table(falls$stopped_to_talk, falls$fall)
+mosaicplot(fallstable, 
+           color = c("darkred", "gold"), 
+           xlab ="Stopped to talk or not", ylab = "Fall or not")
+
 
 ## Question 5
 # 5a) The odds ratio is 0.676663 and then 95% confidence interval is from
