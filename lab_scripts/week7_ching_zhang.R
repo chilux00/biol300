@@ -73,6 +73,15 @@ mosaicplot(fallstable,
            color = c("darkred", "gold"), 
            xlab ="Stopped to talk or not", ylab = "Fall or not")
 
+# 4b) The chi-squared value is 12.09 with 1 degree of freedom and a p-value of
+# 0.0005071. We reject the null hypothesis that there is no relationship between
+# stopping to talk and falls.
+chisq.test(fallstable)
+
+# 4c) The p-value of is 0.0002784, with an odds ratio of 0.06667354 and a 95%
+# confidence interval of 0.006210446 to 0.377823677. There is an association
+# between the two independent categorical variables.
+fisher.test(fallstable)
 
 ## Question 5
 # 5a) The odds ratio is 0.676663 and then 95% confidence interval is from
