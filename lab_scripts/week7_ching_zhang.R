@@ -49,6 +49,7 @@ fisher.test(dominant_table)
 # movement, and the 95% confidence interval is from 0.3269777 to 3.4491262.
 shufflebottom <- read.csv("DataForLabs/shufflebottoms.csv")
 shuffletable <-  table(shufflebottom$name, shufflebottom$movement_type)
+
 shuffletable
 
 fisher.test(shuffletable)
@@ -68,6 +69,12 @@ chisq.test(shuffletable, correct = FALSE)
 # 4a)
 falls <- read.csv("DataForLabs/stopping_falls.csv")
 falls <- tbl(falls$stopped_to_talk, falls$fall)
+class(falls$fall)
+class(falls$stopped_to_talk)
 
 ## Question 5
-# 5a)
+# 5a) The odds ratio is 0.676663 and then 95% confidence interval is from
+# 0.1736193 to 2.9086672.
+tCountTable <- data.frame(Common = c (24, 5), Uncommon = c(57, 8), 
+                          row.names = c("Found", "Not found"))
+fisher.test(tCountTable)
