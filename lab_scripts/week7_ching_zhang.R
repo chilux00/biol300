@@ -5,7 +5,18 @@ oswego <- read.csv("DataForLabs/oswego.csv", stringsAsFactors = TRUE)
 
 # 1b)
 levels(oswego$ill)
-oswego$ill <- factor(oswego$ill, levels = c("Sick", "Healthy"))
+oswego$ill <- factor(oswego$ill, levels = c("Healthy", "Sick"))
+oswego$spinach <- factor(oswego$spinach, levels = c("Y","N"))
+oswego$baked_ham <- factor(oswego$baked_ham, levels = c("Y","N"))
+oswego$mashed_potato <- factor(oswego$mashed_potato, levels = c("Y","N"))
+oswego$brown_bread <- factor(oswego$brown_bread, levels = c("Y","N"))
+oswego$milk <- factor(oswego$milk, levels = c("Y","N"))
+oswego$coffee <- factor(oswego$coffee, levels = c("Y","N"))
+oswego$fruit_salad <- factor(oswego$fruit_salad, levels = c("Y","N"))
+oswego$cabbage_salad <- factor(oswego$cabbage_salad, levels = c("Y","N"))
+oswego$jello <- factor(oswego$jello, levels = c("Y","N"))
+oswego$rolls <- factor(oswego$rolls, levels = c("Y","N"))
+
 
 # 1c) The chi-squared value for the relationship between fruit salad and 
 # illness is 3.68. It would not be legitimate to use a chi-squared test on this
@@ -16,7 +27,7 @@ oswego_table
 chisq.test(oswego_table)$expected
 
 # 1d) For spinach the odds ratio is 1.088495. For baked ham the odds ratio is
-# 0.8325381. For vanilla ice cream the odds ratio is 0.04513438. For chocolate
+# 0.8325381  For vanilla ice cream the odds ratio is 0.04513438. For chocolate
 # ice cream the odds ratio is 2.483418. The most likely vehicle of the disease
 # is vanilla ice cream.
 oswego_spinach <- table(oswego$spinach, oswego$ill)
