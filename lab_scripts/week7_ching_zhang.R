@@ -42,7 +42,7 @@ fisher.test(oswego_ham)$estimate
 fisher.test(oswego_vanilla)$estimate
 fisher.test(oswego_chocolate)$estimate
 
-# 1e) The 95% confidence interval is from 0.007201237 to 0.191715457.
+# 1e) The 95% confidence interval is from 5.216064 to 138.865034.
 fisher.test(oswego_vanilla)$conf.int
 
 # 1f)
@@ -98,7 +98,9 @@ fisher.test(fallstable)
 
 ## Question 5
 # 5a) The odds ratio is 0.676663 and then 95% confidence interval is from
-# 0.1736193 to 2.9086672.
+# 0.1736193 to 2.9086672. The p-value is 0.5308. We do not reject the null
+# hypothesis that the commonness of a word does not affect the probability of 
+# noticing the t's.
 tCountTable <- data.frame(Common = c (24, 5), Uncommon = c(57, 8), 
                           row.names = c("Found", "Not found"))
 fisher.test(tCountTable)
