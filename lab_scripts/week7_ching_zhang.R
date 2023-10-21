@@ -5,7 +5,7 @@ oswego <- read.csv("DataForLabs/oswego.csv", stringsAsFactors = TRUE)
 
 # 1b)
 levels(oswego$ill)
-oswego$ill <- factor(oswego$ill, levels = c("Sick", "Healthy"))
+oswego$ill <- factor(oswego$ill, levels = c("Healthy", "Sick"))
 oswego$spinach <- factor(oswego$spinach, levels = c("Y","N"))
 oswego$baked_ham <- factor(oswego$baked_ham, levels = c("Y","N"))
 oswego$mashed_potato <- factor(oswego$mashed_potato, levels = c("Y","N"))
@@ -26,8 +26,8 @@ oswego_table <- table(oswego$fruit_salad, oswego$ill)
 oswego_table
 chisq.test(oswego_table)$expected
 
-# 1d) For spinach the odds ratio is 0.9186994. For baked ham the odds ratio is
-# 0.8325381. For vanilla ice cream the odds ratio is 0.04513438. For chocolate
+# 1d) For spinach the odds ratio is 1.088495. For baked ham the odds ratio is
+# 0.8325381  For vanilla ice cream the odds ratio is 0.04513438. For chocolate
 # ice cream the odds ratio is 2.483418. The most likely vehicle of the disease
 # is vanilla ice cream.
 oswego_spinach <- table(oswego$spinach, oswego$ill)
