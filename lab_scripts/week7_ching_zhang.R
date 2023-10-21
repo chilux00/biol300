@@ -91,7 +91,7 @@ mosaicplot(fallstable,
 # stopping to talk and falls.
 chisq.test(fallstable)
 
-# 4c) The p-value of is 0.0002784, with an odds ratio of 0.06667354 and a 95%
+# 4c) The p-value of is 0.0002784, with an odds ratio of f and a 95%
 # confidence interval of 0.006210446 to 0.377823677. There is an association
 # between the two independent categorical variables.
 fisher.test(fallstable)
