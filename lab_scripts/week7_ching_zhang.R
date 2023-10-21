@@ -19,16 +19,18 @@ oswego$rolls <- factor(oswego$rolls, levels = c("Y","N"))
 
 
 # 1c) The chi-squared value for the relationship between fruit salad and 
-# illness is 3.68. It would not be legitimate to use a chi-squared test on this
-# data as there are expected values below 5. A better test to use would be
-# Fisher's exact test as there are no set minimum thresholds for expected size.
+# illness is 0.078222. It would not be legitimate to use a chi-squared test on 
+# this data as there are >50%  expected values below 5. A better test to use 
+# would be Fisher's exact test as there are no set minimum thresholds for 
+# expected size.
 oswego_table <- table(oswego$fruit_salad, oswego$ill)
 oswego_table
 chisq.test(oswego_table)$expected
+chisq.test(oswego_table, correct = FALSE)
 
 # 1d) For spinach the odds ratio is 1.088495. For baked ham the odds ratio is
-# 0.8325381  For vanilla ice cream the odds ratio is 0.04513438. For chocolate
-# ice cream the odds ratio is 2.483418. The most likely vehicle of the disease
+# 0.8325381.  For vanilla ice cream the odds ratio is 22.15606. For chocolate
+# ice cream the odds ratio is 0.4026708. The most likely vehicle of the disease
 # is vanilla ice cream.
 oswego_spinach <- table(oswego$spinach, oswego$ill)
 oswego_ham <- table(oswego$baked_ham, oswego$ill)
@@ -40,7 +42,7 @@ fisher.test(oswego_ham)$estimate
 fisher.test(oswego_vanilla)$estimate
 fisher.test(oswego_chocolate)$estimate
 
-# 1e) The 95% confidence interval is from 0.007201237 to 0.191715457.
+# 1e) The 95% confidence interval is from 5.216064 to 138.865034.
 fisher.test(oswego_vanilla)$conf.int
 
 # 1f)
@@ -89,14 +91,16 @@ mosaicplot(fallstable,
 # stopping to talk and falls.
 chisq.test(fallstable)
 
-# 4c) The p-value of is 0.0002784, with an odds ratio of 0.06667354 and a 95%
+# 4c) The p-value of is 0.0002784, with an odds ratio of f and a 95%
 # confidence interval of 0.006210446 to 0.377823677. There is an association
 # between the two independent categorical variables.
 fisher.test(fallstable)
 
 ## Question 5
 # 5a) The odds ratio is 0.676663 and then 95% confidence interval is from
-# 0.1736193 to 2.9086672.
+# 0.1736193 to 2.9086672. The p-value is 0.5308. We do not reject the null
+# hypothesis that the commonness of a word does not affect the probability of 
+# noticing the t's.
 tCountTable <- data.frame(Common = c (24, 5), Uncommon = c(57, 8), 
                           row.names = c("Found", "Not found"))
 fisher.test(tCountTable)
