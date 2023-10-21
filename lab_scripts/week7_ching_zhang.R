@@ -19,16 +19,18 @@ oswego$rolls <- factor(oswego$rolls, levels = c("Y","N"))
 
 
 # 1c) The chi-squared value for the relationship between fruit salad and 
-# illness is 3.68. It would not be legitimate to use a chi-squared test on this
-# data as there are expected values below 5. A better test to use would be
-# Fisher's exact test as there are no set minimum thresholds for expected size.
+# illness is 0.078222. It would not be legitimate to use a chi-squared test on 
+# this data as there are >50%  expected values below 5. A better test to use 
+# would be Fisher's exact test as there are no set minimum thresholds for 
+# expected size.
 oswego_table <- table(oswego$fruit_salad, oswego$ill)
 oswego_table
 chisq.test(oswego_table)$expected
+chisq.test(oswego_table, correct = FALSE)
 
 # 1d) For spinach the odds ratio is 1.088495. For baked ham the odds ratio is
-# 0.8325381  For vanilla ice cream the odds ratio is 0.04513438. For chocolate
-# ice cream the odds ratio is 2.483418. The most likely vehicle of the disease
+# 0.8325381.  For vanilla ice cream the odds ratio is 22.15606. For chocolate
+# ice cream the odds ratio is 0.4026708. The most likely vehicle of the disease
 # is vanilla ice cream.
 oswego_spinach <- table(oswego$spinach, oswego$ill)
 oswego_ham <- table(oswego$baked_ham, oswego$ill)
