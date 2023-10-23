@@ -48,3 +48,15 @@ qqnorm(right_2d_4d_ratio)
 # 4b) The 95% confidence interval is from 0.9715953 to 0.9935528.
 t.test(right_2d_4d_ratio, na.rm = TRUE)$conf.int
 
+## Question 5
+# 5a) The histogram does not look like a normal distribution. It is skewed 
+# to the left.
+mammals <- read.csv("DataForLabs/mammals.csv")
+hist(mammals$body_mass_kg) 
+
+# 5b) This new distribution fits the normal distribution much more than the 
+# non-transformed body mass distribution. This is because taking the log of 
+# the values stabilizes the variance and linearizes the relationship between
+# the range of values - by compressing the range.
+log_mammal <- log(mammals$body_mass_kg)
+hist(log_mammal)
