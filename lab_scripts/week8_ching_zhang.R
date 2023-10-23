@@ -38,5 +38,13 @@ mean(bumpus$total_length_mm, na.rm = TRUE)
 t.test(bumpus$total_length_mm, na.rm = TRUE)$conf.int
 
 ## Question 4
-# 4a)
+# 4a) The right 2d:4d ratio fits a normal distribution relatively well 
+# according to the qqnorm plot. It is relatively linear along the theoretical
+# and sample quantiles.
+finger <- read.csv("DataForLabs/fingerLengths-1.csv")
+right_2d_4d_ratio <- c(finger$Right.2D / finger$Right.4D)
+qqnorm(right_2d_4d_ratio)
+
+# 4b) The 95% confidence interval is from 0.9715953 to 0.9935528.
+t.test(right_2d_4d_ratio, na.rm = TRUE)$conf.int
 
