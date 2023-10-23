@@ -18,3 +18,16 @@ qqnorm(normal_vector)
 normal_vector2 <- rnorm(n = 250, mean = 15, sd = 3)
 hist(normal_vector2)
 qqnorm(normal_vector2)
+
+## Question 3
+# 3a) The data looks as though it comes from a distribution that is 
+# approximately normal.
+bumpus <- read.csv("DataForLabs/bumpus.csv")
+bumpus_plot <- bumpus %>%
+  ggplot(aes(x = total_length_mm)) +
+  geom_histogram() +
+  xlab("Total length of bird, beak to tail (mm)") +
+  ylab("Frequency")
+bumpus_plot
+
+# 3b)
