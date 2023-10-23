@@ -31,3 +31,12 @@ bumpus_plot <- bumpus %>%
 bumpus_plot
 
 # 3b)
+qqnorm(bumpus$total_length_mm)
+
+# 3c) Mean = 159.5441mm, 95% confidence interval: 158.9403mm to 160.1480mm.
+mean(bumpus$total_length_mm, na.rm = TRUE)
+t.test(bumpus$total_length_mm, na.rm = TRUE)$conf.int
+
+## Question 4
+# 4a)
+
