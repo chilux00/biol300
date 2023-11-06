@@ -39,4 +39,16 @@ leveneTest(data = bumpus, weight_g ~ survival, center = mean)
 
 ## Question 2
 # 2a) 
+countries <- read.csv("DataForLabs/countries.csv")
+ecodiff <- c(ecodiff = countries$ecological_footprint_2000 - 
+             countries$ecological_footprint_2012)
+
+hist(ecodiff)
+
+# 2b) The P-value for this test is 0.008434. We would reject the null 
+# hypothesis that the ecological footprint did not change significantly between
+# 2000 and 2012. 
+t.test(countries$ecological_footprint_2000, 
+       countries$ecological_footprint_2012,
+       paired = TRUE)
 
