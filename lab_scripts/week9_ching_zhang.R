@@ -1,4 +1,6 @@
 # Ching Zhang | 68167998
+library(ggplot2)
+library(car)
 ## Question 1
 # 1a) The surviving group has a much less normal distributed graph than the 
 # group that died. The variances do not look approximately normal.
@@ -29,3 +31,9 @@ t.test(weight_g ~ survival, data = bumpus, var.equal = FALSE)
 
 # 1c) The 95% confidence interval is from 0.1351376g to 1.1339597g.
 t.test(weight_g ~ survival, data = bumpus, var.equal = FALSE)$conf.int
+
+# 1d) For these data, the P-value in Levene's Test is 0.3729. We would not 
+# reject the null hypothesis that the surviving and dying birds had the same
+# variance in weight. 
+leveneTest(data = bumpus, weight_g ~ survival, center = mean)
+
