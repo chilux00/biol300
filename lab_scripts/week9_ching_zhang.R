@@ -52,3 +52,8 @@ t.test(countries$ecological_footprint_2000,
        countries$ecological_footprint_2012,
        paired = TRUE)
 
+# 2c) There is evidence that the ecological footprint changed over time from 
+# 2000 to 2012. From the histogram, it shows that the difference from 2000 to 
+# 2012 was more often positive than not, so that would indicate a decrease in 
+# ecological footprint between the two years.
+
