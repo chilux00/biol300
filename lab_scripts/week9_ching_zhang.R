@@ -37,3 +37,6 @@ t.test(weight_g ~ survival, data = bumpus, var.equal = FALSE)$conf.int
 # variance in weight. 
 leveneTest(data = bumpus, weight_g ~ survival, center = mean)
 
+## Question 2
+# 2a) 
+
