@@ -23,6 +23,9 @@ hist_died <- bumpus_died %>%
 hist_surviving
 hist_died
 
-# 1b) The difference is 25.86094 - 
+# 1b) The difference is 25.86094g - 25.22639g = 0.63455g.
 t.test(weight_g ~ survival, data = bumpus, var.equal = FALSE)
+25.86094 - 25.22639 
 
+# 1c) The 95% confidence interval is from 0.1351376g to 1.1339597g.
+t.test(weight_g ~ survival, data = bumpus, var.equal = FALSE)$conf.int
