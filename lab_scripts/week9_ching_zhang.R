@@ -5,25 +5,9 @@ library(car)
 # 1a) The surviving group has a much less normal distributed graph than the 
 # group that died. The variances do not look approximately normal.
 bumpus <- read.csv("DataForLabs/bumpus.csv")
-bumpus_survived <- filter(bumpus, survival == "survived")
-bumpus_died <- filter(bumpus, survival == "died")
-
-hist_surviving <- bumpus_survived %>%
-  ggplot(aes(x = weight_g)) +
-  geom_histogram() +
-  labs(title = "Surviving Group") +
-  xlab("Weight (g)") +
-  ylab("Frequency")
-
-hist_died <- bumpus_died %>%
-  ggplot(aes(x = weight_g)) +
-  geom_histogram() +
-  labs(title = "Dead Group") +
-  xlab("Weight (g)") +
-  ylab("Frequency")
-
-hist_surviving
-hist_died
+ggplot(bumpus, aes(x = weight_g)) +   
+  geom_histogram() + 
+  facet_wrap(~ survival, ncol = 1)
 
 # 1b) The difference is 25.86094g - 25.22639g = 0.63455g.
 t.test(weight_g ~ survival, data = bumpus, var.equal = FALSE)
@@ -56,4 +40,28 @@ t.test(countries$ecological_footprint_2000,
 # 2000 to 2012. From the histogram, it shows that the difference from 2000 to 
 # 2012 was more often positive than not, so that would indicate a decrease in 
 # ecological footprint between the two years.
+
+## Question 3
+# 3a)
+leg <- read.csv("DataForLabs/leg shaving.csv")
+
+# 3b) 
+
+## Question 4
+# 4a) 
+finger <- read.csv("DataForLabs/fingerLengths-1.csv")
+finger <- finger %>%
+  filter(Handedness == "R") %>%
+  mutate(ratio = Right.2D / Right.4D)
+
+ggplot(finger, aes(x = Sex, y = ratio, fill = Sex)) + 
+  geom_violin() +
+  xlab("Sex") + ylab("Ratio of 2D:4D in the right hand") + 
+  theme_classic()+scale_fill_manual(values=c("#FFB531","#BC211A"))+ 
+  stat_summary(fun.y=mean,  geom="point", color="black")+ 
+  theme(legend.position="none")+ 
+  theme(aspect.ratio=1)
+
+# 4b)
+t.test(ratio ~ Sex, data = finger, var.equal = TRUE)
 
