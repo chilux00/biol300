@@ -63,4 +63,5 @@ ggplot(finger, aes(x = Sex, y = ratio, fill = Sex)) +
   theme(aspect.ratio=1)
 
 # 4b)
+t.test(ratio ~ Sex, data = finger, var.equal = TRUE)
 
