@@ -39,3 +39,44 @@ anova(cuckooANOVA)
 # cannot reject null hypotheses for all other pairings, and can only reject
 # the null hypothesis for these pairings. 
 TukeyHSD(aov(cuckooANOVA))
+
+## Question 2 
+# 2a)
+maizemalaria <- read.csv("DataForLabs/malaria vs maize.csv")
+
+ggplot(maizemalaria, aes(x = incidence_rate_per_ten_thousand)) +   
+  geom_histogram(binwidth = 10) + 
+  facet_wrap(~ maize_yield, ncol = 1) +
+  theme(text = element_text(size=10)) +
+  xlab("Rate of Malaria per 10 000 people") +
+  ylab("Level of cultivation of maize")
+
+# 2b) The standard deviations are not similar for these data. We would be 
+# breaking the assumption of the ANOVA test of equal variances.
+maize_sd <- maizemalaria %>%
+  group_by(maize_yield) %>%
+  summarize(group_mean = mean(incidence_rate_per_ten_thousand, 
+                              na.rm = TRUE))
+
+maize_sd
+
+# 2c) Yes, the log transformed data better meets the assumptions of the ANOVA
+# test.
+maizelog <- maizemalaria %>%
+  mutate(log_incidence = log(incidence_rate_per_ten_thousand))
+
+ggplot(maizelog, aes(x = log_incidence)) +   
+  geom_histogram(binwidth = 10) + 
+  facet_wrap(~ maize_yield, ncol = 1) +
+  theme(text = element_text(size=10)) +
+  xlab("Log Rate of Malaria per 10 000 people") +
+  ylab("Level of cultivation of maize")
+
+maizelog_sd <- maizelog %>%
+  group_by(maize_yield) %>%
+  summarize(group_mean = mean(log_incidence, 
+                              na.rm = TRUE))
+
+maizelog_sd
+
+# 3d)
