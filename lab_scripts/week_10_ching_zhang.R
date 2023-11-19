@@ -96,3 +96,7 @@ ggplot(circadian, aes(x = days_to_death)) +
   xlab("Days until Death") +
   ylab("Genotype")
 
+# 3b) The p-value is very small, and we reject the null hypothesis that there 
+# is no association between lifespan difference between the three groups of 
+# flies.
+kruskal.test(genotype ~ days_to_death, data = circadian)
