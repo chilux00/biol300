@@ -12,5 +12,5 @@ ggplot(cuckoo, aes(x = egg_length)) +
   xlab("Egg Length (mm)") +
   ylab("Frequency")
 
-
+# 1b)
 
