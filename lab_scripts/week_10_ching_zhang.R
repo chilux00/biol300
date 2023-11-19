@@ -26,3 +26,9 @@ cuckoo_sd_mean
 # deviations are relatively similar, meaning this assumption can be made and 
 # the ANOVA test would be a valid method to test for differences between host 
 # species in the lengths of cuckoo eggs in their nests. 
+
+# 1d) The P value is very small, at 3.152e-08, so we reject the null hypothesis
+# that there is no difference between host species and the lengths of cuckoo
+# eggs in their nests.
+cuckooANOVA <- lm(egg_length ~ host_species, data = cuckoo)
+anova(cuckooANOVA)
