@@ -45,7 +45,7 @@ TukeyHSD(aov(cuckooANOVA))
 maizemalaria <- read.csv("DataForLabs/malaria vs maize.csv")
 
 ggplot(maizemalaria, aes(x = incidence_rate_per_ten_thousand)) +   
-  geom_histogram(binwidth = 10) + 
+  geom_histogram() + 
   facet_wrap(~ maize_yield, ncol = 1) +
   theme(text = element_text(size=10)) +
   xlab("Rate of Malaria per 10 000 people") +
@@ -66,7 +66,7 @@ maizelog <- maizemalaria %>%
   mutate(log_incidence = log(incidence_rate_per_ten_thousand))
 
 ggplot(maizelog, aes(x = log_incidence)) +   
-  geom_histogram(binwidth = 10) + 
+  geom_histogram() + 
   facet_wrap(~ maize_yield, ncol = 1) +
   theme(text = element_text(size=10)) +
   xlab("Log Rate of Malaria per 10 000 people") +
@@ -84,3 +84,15 @@ maizelog_sd
 # cultivation of maize and log-transformed incidences of malaria.
 maizeANOVA <- lm(log_incidence ~ maize_yield, data = maizelog)
 anova(maizeANOVA)
+
+## Question 3
+# 3a) 
+circadian <- read.csv("DataForLabs/circadian mutant health.csv")
+
+ggplot(circadian, aes(x = days_to_death)) +   
+  geom_histogram() + 
+  facet_wrap(~ genotype, ncol = 1) +
+  theme(text = element_text(size=10)) +
+  xlab("Days until Death") +
+  ylab("Genotype")
+
