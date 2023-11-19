@@ -42,10 +42,16 @@ t.test(countries$ecological_footprint_2000,
 # ecological footprint between the two years.
 
 ## Question 3
-# 3a)
+# 3a) The p-value is 0.1295, we do not reject the null hypothesis.
 leg <- read.csv("DataForLabs/leg shaving.csv")
+hist(leg$hair_width_change_test)
+hist(leg$hair_width_change_control)
+t.test(leg$hair_width_change_control, leg$hair_width_change_test, 
+       data = leg,
+       paired = TRUE)
 
-# 3b) 
+# 3b) The confidence interval is -4.025854 to 21.625854.
+
 
 ## Question 4
 # 4a) 
@@ -62,6 +68,8 @@ ggplot(finger, aes(x = Sex, y = ratio, fill = Sex)) +
   theme(legend.position="none")+ 
   theme(aspect.ratio=1)
 
-# 4b)
+# 4b) The p value is 0.314. We do not reject the null hypothesis.
 t.test(ratio ~ Sex, data = finger, var.equal = TRUE)
+
+# 4c) The 95% confidence interval is -0.01166745 to 0.03601863
 
