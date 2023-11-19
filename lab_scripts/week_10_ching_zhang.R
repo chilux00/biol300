@@ -79,4 +79,8 @@ maizelog_sd <- maizelog %>%
 
 maizelog_sd
 
-# 3d)
+# 2d) The P-value is very small with 3 degrees of significance, therefore we 
+# reject the null hypothesis that there is no association between the level of
+# cultivation of maize and log-transformed incidences of malaria.
+maizeANOVA <- lm(log_incidence ~ maize_yield, data = maizelog)
+anova(maizeANOVA)
