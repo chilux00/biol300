@@ -32,3 +32,10 @@ cuckoo_sd_mean
 # eggs in their nests.
 cuckooANOVA <- lm(egg_length ~ host_species, data = cuckoo)
 anova(cuckooANOVA)
+
+# 1e) In these data, the p-value is only less than 0.05 in the pairs of 
+# Meadow Pipit-Hedge Sparrow, Wren-Hedge Sparrow, Tree Pipit-Meadow Pipit,
+# Wren-Meadow Pipit, Wren-Pied Wagtail, Wren-Robin and Wren-Tree Pipit. We 
+# cannot reject null hypotheses for all other pairings, and can only reject
+# the null hypothesis for these pairings. 
+TukeyHSD(aov(cuckooANOVA))
