@@ -12,5 +12,17 @@ ggplot(cuckoo, aes(x = egg_length)) +
   xlab("Egg Length (mm)") +
   ylab("Frequency")
 
-# 1b)
+# 1b) 
+cuckoo_sd_mean <- cuckoo %>%
+  group_by(host_species) %>%
+  summarize(group_mean = mean(egg_length, na.rm = TRUE),
+            group_sd = sd(egg_length, na.rm = TRUE))
 
+cuckoo_sd_mean
+
+# 1c) In order to perform ANOVA analysis on these data we must evaluate whether
+# or not they fit the equal variance assumption of the ANOVA test. Looking
+# at the table of standard deviation and means, we see that the standard
+# deviations are relatively similar, meaning this assumption can be made and 
+# the ANOVA test would be a valid method to test for differences between host 
+# species in the lengths of cuckoo eggs in their nests. 
