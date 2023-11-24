@@ -56,7 +56,8 @@ ggplot(maizemalaria, aes(x = incidence_rate_per_ten_thousand)) +
 maize_sd <- maizemalaria %>%
   group_by(maize_yield) %>%
   summarize(group_mean = mean(incidence_rate_per_ten_thousand, 
-                              na.rm = TRUE))
+                              na.rm = TRUE), 
+            group_sd = sd(incidence_rate_per_ten_thousand))
 
 maize_sd
 
