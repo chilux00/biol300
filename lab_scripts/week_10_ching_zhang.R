@@ -75,7 +75,7 @@ ggplot(maizelog, aes(x = log_incidence)) +
 
 maizelog_sd <- maizelog %>%
   group_by(maize_yield) %>%
-  summarize(group_mean = mean(log_incidence, 
+  summarize(group_sd = sd(log_incidence, 
                               na.rm = TRUE))
 
 maizelog_sd
@@ -100,4 +100,4 @@ ggplot(circadian, aes(x = days_to_death)) +
 # 3b) The p-value is very small, and we reject the null hypothesis that there 
 # is no association between lifespan difference between the three groups of 
 # flies.
-kruskal.test(genotype ~ days_to_death, data = circadian)
+kruskal.test(days_to_death ~ genotype, data = circadian)
